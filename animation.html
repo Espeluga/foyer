@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Animations - Galerie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-banner">
+        <a href="index.html">Accueil</a>
+        <a href="missions.html">Nos Missions</a>
+        <a href="equipe.html">L'équipe éducative</a>
+        <a href="espeluga.html">L'Espeluga</a>
+        <a href="formation.html">Formation</a>
+        <a href="animation.html">Animation</a>
+        <a href="sorties.html">Souvenir</a>
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Nos animations</h1>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="photos">📸 Photos</button>
+            <button class="tab-btn" data-tab="videos">🎥 Vidéos</button>
+        </div>
+
+        <div id="photos" class="tab-content active">
+            <div class="media-grid">
+                <div class="media-card"><img src="image/photo1.jpg" alt="Soirée jeux"><p>Soirée jeux de société</p></div>
+                <div class="media-card"><img src="image/photo2.jpg" alt="Sortie plage"><p>Sortie à la plage</p></div>
+                <div class="media-card"><img src="image/photo3.jpg" alt="Atelier théâtre"><p>Atelier théâtre</p></div>
+                <div class="media-card"><img src="image/photo4.jpg" alt="Fête d'anniversaire"><p>Anniversaire d'Aboubacar</p></div>
+            </div>
+        </div>
+
+        <div id="videos" class="tab-content">
+            <div class="media-grid">
+                <div class="media-card">
+                    <video controls>
+                        <source src="image/video1.mp4" type="video/mp4">
+                    </video>
+                    <p>Match de foot</p>
+                </div>
+                <div class="media-card">
+                    <video controls>
+                        <source src="image/video2.mp4" type="video/mp4">
+                    </video>
+                    <p>Répétition théâtre</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gestion des onglets
+        const btns = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                contents.forEach(content => content.classList.remove('active'));
+                btns.forEach(b => b.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+                btn.classList.add('active');
+            });
+        });
+    </script>
+
+    <footer>
+        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
+    </footer>
+</body>
+</html>
