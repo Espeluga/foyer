@@ -6,8 +6,39 @@
     <title>Accueil - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Image de fond spécifique à l'accueil */
         body {
             background-image: url('image/font.05.webp');
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        /* Conteneur principal pour pousser le footer en bas */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        /* Style du titre (identique à l'ancien hero) */
+        .main-content h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            background: linear-gradient(45deg, #FF5E00, #FF00FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        footer {
+            margin-top: 0;
+        }
+        @media (max-width: 600px) {
+            .main-content h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -22,18 +53,9 @@
         <a href="sorties.html">Sorties</a>
     </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Foyer L'Espeluga</h1>
-            <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
-        </div>
-    </section>
-
-    <div class="container">
-        <div style="background: white; padding: 2rem; border-radius: 20px; text-align: center;">
-            <h2>Bienvenue sur l'espace éducatif</h2>
-            <p>Découvrez nos missions, notre équipe, les formations, animations et sorties organisées avec les jeunes.</p>
-        </div>
+    <!-- Contenu principal : uniquement le titre -->
+    <div class="main-content">
+        <h1>Foyer L'Espeluga</h1>
     </div>
 
     <footer>
