@@ -2,48 +2,69 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formation - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="top-banner"><!-- même menu --></div>
+    <div class="top-banner">
+        <a href="index.html">Accueil</a>
+        <a href="missions.html">Nos Missions</a>
+        <a href="equipe.html">L'équipe éducative</a>
+        <a href="espeluga.html">L'Espeluga</a>
+        <a href="formation.html">Formation</a>
+        <a href="animation.html">Animation</a>
+        <a href="sorties.html">Souvenir</a>
+    </div>
 
-    <section class="page-hero" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
+    <section class="page-hero" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">
         <div class="hero-content">
-            <h1>Formations & apprentissages</h1>
-            <p>Des parcours sur mesure pour réussir</p>
+            <h1><i class="fas fa-graduation-cap"></i> Formations & apprentissages</h1>
+            <p>Des parcours sur mesure vers l'emploi</p>
         </div>
     </section>
 
     <div class="container">
+        <!-- Image de présentation 1280x720 (remplacer par ton image) -->
+        <img src="image/formation-bg.jpg" alt="Présentation formation" style="width:100%; border-radius: 24px; margin-bottom: 2rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);">
+
+        <h2 style="text-align:center; margin-bottom:1rem;"><i class="fas fa-film"></i> Nos filières en images</h2>
         <div class="film-strip">
             <div class="film-item">
                 <img src="image/atelier-cuisine.jpg" alt="Cuisine">
-                <p><i class="fas fa-utensils"></i> Atelier cuisine – CAP</p>
+                <p><i class="fas fa-utensils"></i> CAP Cuisine</p>
             </div>
             <div class="film-item">
                 <img src="image/atelier-btp.jpg" alt="BTP">
-                <p><i class="fas fa-hard-hat"></i> BTP – Prépa apprentis</p>
+                <p><i class="fas fa-hard-hat"></i> Prépa BTP</p>
             </div>
             <div class="film-item">
                 <img src="image/atelier-numerique.jpg" alt="Numérique">
-                <p><i class="fas fa-laptop-code"></i> Numérique – Remise à niveau</p>
+                <p><i class="fas fa-laptop-code"></i> Remise à niveau numérique</p>
             </div>
-            <!-- ajoute d'autres -->
+            <div class="film-item">
+                <img src="image/atelier-commerce.jpg" alt="Commerce">
+                <p><i class="fas fa-tag"></i> Vente & commerce</p>
+            </div>
+            <div class="film-item">
+                <img src="image/atelier-jardin.jpg" alt="Jardinage">
+                <p><i class="fas fa-leaf"></i> Jardinage & insertion</p>
+            </div>
         </div>
 
+        <!-- Lecteur audio avec musique d'ambiance -->
         <div class="audio-player">
-            <p><i class="fas fa-music"></i> Musique d'ambiance</p>
-            <audio controls loop>
+            <i class="fas fa-headphones"></i> Musique d'ambiance<br>
+            <audio controls loop style="margin-top:10px; width:80%; max-width:300px;">
                 <source src="musique/ambiance.mp3" type="audio/mpeg">
+                Ton navigateur ne supporte pas l'audio.
             </audio>
         </div>
     </div>
 
-    <footer>...</footer>
-</body>
-</html>
+    <footer>
+        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
 </body>
 </html>
