@@ -3,13 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Missions - Foyer L'Espeluga</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Ici tu mettras ton style commun (peut être dans style.css) */
-        /* Je fournis un style complet dans la réponse suivante */
-    </style>
+    <title>L'ESPELUGA</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Fond spécifique pour la page équipe */
+        body {
+            background-image: url('image/font.05.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        /* Overlay plus sombre pour que les cartes ressortent */
+        body::before {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* ===== MUR D'ÉQUIPE ===== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        /* Limite à 3 cartes par ligne sur grand écran */
+        @media (min-width: 1000px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Carte style glassmorphism (comme fenetre-formation) */
+        .team-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 24px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #ffd700;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        /* Photo qui remplit le cadre */
+        .team-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            transition: transform 0.3s;
+        }
+        .team-card:hover img {
+            transform: scale(1.02);
+        }
+        .team-card h3 {
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+            color: #ffd700;
+            font-weight: bold;
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1px;
+        }
+        .team-card p {
+            font-size: 1rem;
+            color: white;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+        .role {
+            display: block;
+            font-size: 0.85rem;
+            color: #f0f0f0;
+            background: rgba(0,0,0,0.4);
+            padding: 0.5rem;
+            border-radius: 30px;
+            margin-top: 0.8rem;
+            font-style: italic;
+        }
+        /* Ajustement responsive */
+        @media (max-width: 700px) {
+            .team-card img {
+                height: 200px;
+            }
+            .team-card h3 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="top-banner">
@@ -21,44 +108,44 @@
         <a href="animation.html">Animation</a>
         <a href="sorties.html">Souvenir</a>
     </div>
-
-    <section class="page-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-        <div class="hero-content">
-            <h1>Nos Missions</h1>
-            <p>Accompagner, protéger, insérer – chaque jeune compte</p>
-        </div>
     </section>
 
     <div class="container">
-        <div class="card-grid">
-            <div class="card">
-                <i class="fas fa-graduation-cap card-icon"></i>
-                <h3>Scolarité & Formation</h3>
-                <p>Soutien scolaire, suivi des apprentissages, lien avec les CFA et entreprises.</p>
+        <div class="team-grid">
+            <!-- Carte 1 -->
+            <div class="team-card">
+                <img src="    " alt="   ">
+                <h3>VIE QUOTIDIENNE</h3>
+                <p> !</p>
+                <span class="role">   </span>
             </div>
-            <div class="card">
-                <i class="fas fa-home card-icon"></i>
-                <h3>Hébergement éducatif</h3>
-                <p>Cadre sécurisé, chambres individuelles, vie collective et accompagnement vers l'autonomie.</p>
+            <!-- Carte 2 -->
+            <div class="team-card">
+                <img src="     " alt="Nico">
+                <h3>SANTE</h3>
+                <p>Éduc Engagé</p>
+                <span class="role">   </span>
             </div>
-            <div class="card">
-                <i class="fas fa-heartbeat card-icon"></i>
-                <h3>Bien-être & Santé</h3>
-                <p>Suivi médical, soutien psychologique, ateliers bien-être et prévention.</p>
+            <!-- Carte 3 -->
+            <div class="team-card">
+                <img src="    " alt="    ">
+                <h3>INSERTION PRO</h3>
+                <p>    </p>
+                <span class="role">    </span>
             </div>
-            <div class="card">
-                <i class="fas fa-users card-icon"></i>
-                <h3>Insertion sociale</h3>
-                <p>Activités culturelles, sportives, sorties éducatives, bénévolat et citoyenneté.</p>
+            <!-- Carte 4 -->
+            <div class="team-card">
+                <img src="   " alt="Nadia">
+                <h3>VIE SOCIALE</h3>
+                <p>  </p>
+                <span class="role">   </span>
             </div>
+            <!-- Tu peux ajouter d'autres cartes ici, elles passeront à la ligne automatiquement -->
         </div>
     </div>
 
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
-    </footer>
-</body>
-</html>
     </footer>
 </body>
 </html>
