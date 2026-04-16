@@ -6,45 +6,43 @@
     <title>Accueil - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Ajustement pour que le footer reste en bas */
+        /* Ajustement pour placer le footer en bas */
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
         }
-        .container-accueil {
+        .contenu-principal {
             flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1rem;
         }
-        .accueil-texte h1 {
+        .titre-accueil h1 {
             font-size: 4rem;
-            margin-bottom: 1rem;
             color: #ffd700;
             text-shadow: 2px 2px 8px black;
+            margin-bottom: 0.5rem;
         }
-        .accueil-texte p {
+        .titre-accueil p {
             font-size: 1.5rem;
             color: white;
             text-shadow: 1px 1px 4px black;
             max-width: 800px;
+            margin: 0 auto;
         }
         footer {
             margin-top: 0;
         }
         @media (max-width: 600px) {
-            .accueil-texte h1 { font-size: 2.5rem; }
-            .accueil-texte p { font-size: 1.2rem; }
+            .titre-accueil h1 { font-size: 2.5rem; }
+            .titre-accueil p { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Bande de navigation (identique) -->
+    <!-- Bande de navigation -->
     <div class="top-banner">
         <a href="index.html">Accueil</a>
         <a href="missions.html">Nos Missions</a>
@@ -55,15 +53,15 @@
         <a href="sorties.html">Souvenir</a>
     </div>
 
-    <!-- Contenu principal centré (horizontalement et légèrement en haut) -->
-    <div class="container-accueil">
-        <div class="accueil-texte">
+    <!-- Contenu : titre + phrase, juste sous la banderole -->
+    <div class="contenu-principal">
+        <div class="titre-accueil">
             <h1>Foyer L'Espeluga</h1>
             <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
         </div>
     </div>
 
-    <!-- Pied de page en bas -->
+    <!-- Footer en bas -->
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
