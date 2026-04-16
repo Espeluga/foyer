@@ -13,17 +13,14 @@
             min-height: 100vh;
             margin: 0;
         }
-        /* Le contenu (hero) prend tout l'espace restant pour pousser le footer en bas */
+        /* Hero en haut, pas de centrage vertical */
         .hero {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
+            margin-top: 2rem;  /* Espace sous la bannière (ajustable) */
         }
-        /* On s'assure que le footer reste en bas sans marges supplémentaires */
+        /* Pousse le footer en bas */
         footer {
-            margin-top: 0;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -38,15 +35,12 @@
         <a href="sorties.html">Sorties</a>
     </div>
 
-    <!-- Section hero conservée intacte (style inchangé) -->
     <section class="hero">
         <div class="hero-content">
             <h1>Foyer L'Espeluga</h1>
             <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
         </div>
     </section>
-
-    <!-- Bloc container supprimé (celui avec le fond blanc) -->
 
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
