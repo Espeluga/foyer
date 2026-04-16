@@ -2,61 +2,48 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Formation - Parcours jeunes</title>
+    <title>Formation - Foyer L'Espeluga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="top-banner">
-        <a href="index.html">Accueil</a>
-        <a href="missions.html">Nos Missions</a>
-        <a href="equipe.html">L'équipe éducative</a>
-        <a href="espeluga.html">L'Espeluga</a>
-        <a href="formation.html">Formation</a>
-        <a href="animation.html">Animation</a>
-        <a href="sorties.html">Souvenir</a>
-    </div>
+    <div class="top-banner"><!-- même menu --></div>
+
+    <section class="page-hero" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
+        <div class="hero-content">
+            <h1>Formations & apprentissages</h1>
+            <p>Des parcours sur mesure pour réussir</p>
+        </div>
+    </section>
 
     <div class="container">
-        <img src="image/formation-bg.jpg" alt="Formation" style="width:100%; border-radius:20px; margin-bottom:2rem;">
-        
-        <div class="page-header">
-            <h1>Nos formations en alternance</h1>
-        </div>
-
         <div class="film-strip">
             <div class="film-item">
                 <img src="image/atelier-cuisine.jpg" alt="Cuisine">
-                <p>🍳 Atelier cuisine – CAP</p>
+                <p><i class="fas fa-utensils"></i> Atelier cuisine – CAP</p>
             </div>
-            <div class="Initiation Fun">
-                <img src="image/anais.atelier.patisserie.jpg" alt="Atelier patisserie">
-                <p>🏗️ BTP – Prépa apprentis</p>
+            <div class="film-item">
+                <img src="image/atelier-btp.jpg" alt="BTP">
+                <p><i class="fas fa-hard-hat"></i> BTP – Prépa apprentis</p>
             </div>
             <div class="film-item">
                 <img src="image/atelier-numerique.jpg" alt="Numérique">
-                <p>💻 Numérique – Remise à niveau</p>
+                <p><i class="fas fa-laptop-code"></i> Numérique – Remise à niveau</p>
             </div>
-            <div class="film-item">
-                <img src="image/atelier-commerce.jpg" alt="Commerce">
-                <p>🛍️ Commerce – Vente</p>
-            </div>
-            <div class="film-item">
-                <img src="image/atelier-jardin.jpg" alt="Jardinage">
-                <p>🌿 Jardinage – Insertion</p>
-            </div>
+            <!-- ajoute d'autres -->
         </div>
 
         <div class="audio-player">
-            <p>🎵 Musique d'ambiance :</p>
-            <audio controls autoplay loop>
+            <p><i class="fas fa-music"></i> Musique d'ambiance</p>
+            <audio controls loop>
                 <source src="musique/ambiance.mp3" type="audio/mpeg">
-                Votre navigateur ne supporte pas l'audio.
             </audio>
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
+    <footer>...</footer>
+</body>
+</html>
     </footer>
 </body>
 </html>
