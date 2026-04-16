@@ -6,56 +6,12 @@
     <title>Accueil - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Image de fond propre à l'accueil (remplace par ton image) */
         body {
             background-image: url('image/font.05.webp');
-        }
-        
-        /* Ajustement pour placer le footer en bas */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .contenu-accueil {
-            flex: 1;
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-        /* Style original du titre (hérité du hero précédent) */
-        .contenu-accueil h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 5rem;
-            background: linear-gradient(45deg, #FF5E00, #FF00FF);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: none;
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
-        }
-        .contenu-accueil p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.3rem;
-            color: white;
-            font-weight: 500;
-            max-width: 700px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 2px black;
-        }
-        footer {
-            margin-top: 0;
-        }
-        @media (max-width: 600px) {
-            .contenu-accueil h1 { font-size: 3rem; }
-            .contenu-accueil p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Bande de navigation (identique à toutes les pages) -->
     <div class="top-banner">
         <a href="index.html">Accueil</a>
         <a href="missions.html">Nos Missions</a>
@@ -63,19 +19,25 @@
         <a href="espeluga.html">L'Espeluga</a>
         <a href="formation.html">Formation</a>
         <a href="animation.html">Animation</a>
-        <a href="sorties.html">Souvenir</a>
+        <a href="sorties.html">Sorties</a>
     </div>
 
-    <!-- Contenu : titre et phrase, juste sous la banderole -->
-    <div class="contenu-accueil">
-        <h1>Foyer L'Espeluga</h1>
-        <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Foyer L'Espeluga</h1>
+            <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div style="background: white; padding: 2rem; border-radius: 20px; text-align: center;">
+            <h2>Bienvenue sur l'espace éducatif</h2>
+            <p>Découvrez nos missions, notre équipe, les formations, animations et sorties organisées avec les jeunes.</p>
+        </div>
     </div>
 
-    <!-- Footer en bas -->
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
-
 </body>
 </html>
