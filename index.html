@@ -6,6 +6,11 @@
     <title>Accueil - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Image de fond propre à l'accueil (remplace par ton image) */
+        body {
+            background-image: url('image/font.05.webp');
+        }
+        
         /* Ajustement pour placer le footer en bas */
         body {
             display: flex;
@@ -13,36 +18,44 @@
             min-height: 100vh;
             margin: 0;
         }
-        .contenu-principal {
+        .contenu-accueil {
             flex: 1;
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
         }
-        .titre-accueil h1 {
-            font-size: 4rem;
-            color: #ffd700;
-            text-shadow: 2px 2px 8px black;
+        /* Style original du titre (hérité du hero précédent) */
+        .contenu-accueil h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            background: linear-gradient(45deg, #FF5E00, #FF00FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
             margin-bottom: 0.5rem;
+            letter-spacing: 2px;
         }
-        .titre-accueil p {
-            font-size: 1.5rem;
+        .contenu-accueil p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
             color: white;
-            text-shadow: 1px 1px 4px black;
-            max-width: 800px;
+            font-weight: 500;
+            max-width: 700px;
             margin: 0 auto;
+            text-shadow: 1px 1px 2px black;
         }
         footer {
             margin-top: 0;
         }
         @media (max-width: 600px) {
-            .titre-accueil h1 { font-size: 2.5rem; }
-            .titre-accueil p { font-size: 1.2rem; }
+            .contenu-accueil h1 { font-size: 3rem; }
+            .contenu-accueil p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Bande de navigation -->
+    <!-- Bande de navigation (identique à toutes les pages) -->
     <div class="top-banner">
         <a href="index.html">Accueil</a>
         <a href="missions.html">Nos Missions</a>
@@ -53,12 +66,10 @@
         <a href="sorties.html">Souvenir</a>
     </div>
 
-    <!-- Contenu : titre + phrase, juste sous la banderole -->
-    <div class="contenu-principal">
-        <div class="titre-accueil">
-            <h1>Foyer L'Espeluga</h1>
-            <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
-        </div>
+    <!-- Contenu : titre et phrase, juste sous la banderole -->
+    <div class="contenu-accueil">
+        <h1>Foyer L'Espeluga</h1>
+        <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
     </div>
 
     <!-- Footer en bas -->
