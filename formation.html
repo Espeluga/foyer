@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    <!-- Bande de navigation -->
     <div class="top-banner">
         <a href="index.html">Accueil</a>
         <a href="missions.html">Nos Missions</a>
@@ -20,90 +21,143 @@
 
     <div class="container">
         <a href="index.html" class="bouton-retour">← Retour à l'accueil</a>
-        <h1>📚 FORMATIONS & APPRENTISSAGES</h1>
+        <h1>📖 NOS FORMATIONS & APPRENTIS</h1>
 
-        <!-- Carrousel des filières -->
-        <div class="carrousel-section">
-            <div class="carrousel-header">
-                <h2>Nos filières en images</h2>
-                <div class="controles-carrousel">
-                    <button class="btn-carrousel" id="leftFormation">◀ Left</button>
-                    <button class="btn-carrousel" id="rightFormation">Right ▶</button>
+        <!-- ===== BLOC 1 : BOULANGERIE ===== -->
+        <div class="bloc-formation">
+            <div class="bloc-titre">🥖 BOULANGERIE</div>
+            
+            <div class="carrousel-wrapper">
+                <div class="carrousel-header">
+                    <h3>📸 Galerie photos</h3>
+                    <div class="controls">
+                        <button class="btn-left">◀</button>
+                        <button class="btn-right">▶</button>
+                    </div>
                 </div>
-            </div>
-            <div class="carrousel-container">
-                <div class="carrousel left" id="carrouselFormation">
-                    <div class="fenetre">
-                        <img src="image/atelier-cuisine.jpg" alt="Cuisine">
-                        <h3>CAP Cuisine</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-btp.jpg" alt="BTP">
-                        <h3>Prépa BTP</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-numerique.jpg" alt="Numérique">
-                        <h3>Remise à niveau numérique</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-commerce.jpg" alt="Commerce">
-                        <h3>Vente & commerce</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-jardin.jpg" alt="Jardinage">
-                        <h3>Jardinage & insertion</h3>
-                    </div>
-                    <!-- Duplication -->
-                    <div class="fenetre">
-                        <img src="image/atelier-cuisine.jpg" alt="Cuisine">
-                        <h3>CAP Cuisine</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-btp.jpg" alt="BTP">
-                        <h3>Prépa BTP</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-numerique.jpg" alt="Numérique">
-                        <h3>Remise à niveau numérique</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-commerce.jpg" alt="Commerce">
-                        <h3>Vente & commerce</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-jardin.jpg" alt="Jardinage">
-                        <h3>Jardinage & insertion</h3>
+                <div class="carrousel-container">
+                    <div class="carrousel-horizontal">
+                        <div class="fenetre-formation">
+                            <img src="image/boulangerie1.jpg" alt="Préparation pâte">
+                            <p>Préparation de la pâte</p>
+                        </div>
+                        <div class="fenetre-formation">
+                            <img src="image/boulangerie2.jpg" alt="Façonnage">
+                            <p>Façonnage des pains</p>
+                        </div>
+                        <div class="fenetre-formation">
+                            <img src="image/boulangerie3.jpg" alt="Four">
+                            <p>Enfournement</p>
+                        </div>
+                        <div class="fenetre-formation">
+                            <img src="image/boulangerie4.jpg" alt="Résultat">
+                            <p>Sortie du four</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Lecteur audio (optionnel, comme dans Teddy) -->
-        <div style="text-align: center; margin-top: 40px;">
-            <div style="background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 50px; padding: 15px; display: inline-block; width: auto;">
-                <p style="color: white; margin-bottom: 10px;">🎵 Musique d'ambiance</p>
-                <audio controls>
-                    <source src="musique/ambiance.mp3" type="audio/mpeg">
-                    Ton navigateur ne supporte pas l'audio.
-                </audio>
+            <div class="bio">
+                <p><strong>👨‍🍳 Apprenti : Mamadou Diallo</strong> – 17 ans, en CAP Boulangerie au CFA de Perpignan depuis septembre 2025. Très motivé, il souhaite ouvrir sa propre boutique dans quelques années. Il est autonome, ponctuel et apprécie particulièrement le travail en équipe.</p>
             </div>
         </div>
+
+        <!-- ===== BLOC 2 : BTP ===== -->
+        <div class="bloc-formation">
+            <div class="bloc-titre">🏗️ BTP - MAÇONNERIE</div>
+            
+            <div class="carrousel-wrapper">
+                <div class="carrousel-header">
+                    <h3>📸 Galerie photos</h3>
+                    <div class="controls">
+                        <button class="btn-left">◀</button>
+                        <button class="btn-right">▶</button>
+                    </div>
+                </div>
+                <div class="carrousel-container">
+                    <div class="carrousel-horizontal">
+                        <div class="fenetre-formation">
+                            <img src="image/btp1.jpg" alt="Lecture plan">
+                            <p>Lecture de plan</p>
+                        </div>
+                        <div class="fenetre-formation">
+                            <img src="image/btp2.jpg" alt="Montage mur">
+                            <p>Montage d'un mur</p>
+                        </div>
+                        <div class="fenetre-formation">
+                            <img src="image/btp3.jpg" alt="Outillage">
+                            <p>Utilisation des outils</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bio">
+                <p><strong>🧱 Apprenti : Issa Traoré</strong> – 18 ans, prépa apprentis BTP. Arrivé en France il y a deux ans, il a déjà effectué trois stages en entreprise. Son maître d'apprentissage souligne son sérieux et sa rapidité d'apprentissage. Il vise un CAP Maçonnerie.</p>
+            </div>
+        </div>
+
+        <!-- ===== BLOC 3 : NUMÉRIQUE ===== -->
+        <div class="bloc-formation">
+            <div class="bloc-titre">💻 NUMÉRIQUE & MÉDIAS</div>
+            
+            <div class="carrousel-wrapper">
+                <div class="carrousel-header">
+                    <h3>📸 Galerie photos</h3>
+                    <div class="controls">
+                        <button class="btn-left">◀</button>
+                        <button class="btn-right">▶</button>
+                    </div>
+                </div>
+                <div class="carrousel-container">
+                    <div class="carrousel-horizontal">
+                        <div class="fenetre-formation">
+                            <img src="image/numerique1.jpg" alt="Atelier code">
+                            <p>Apprentissage du code</p>
+                        </div>
+                        <div class="fenetre-formation">
+                            <img src="image/numerique2.jpg" alt="Création site">
+                            <p>Création de site web</p>
+                        </div>
+                        <div class="fenetre-formation">
+                            <img src="image/numerique3.jpg" alt="Montage vidéo">
+                            <p>Montage vidéo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bio">
+                <p><strong>🎧 Apprenti : Aboubacar Camara</strong> – 17 ans, en apprentissage depuis janvier 2026. Passionné par l'informatique, il suit une remise à niveau numérique et envisage un Bac Pro Systèmes Numériques. Il est créatif, curieux et s’investit dans les projets du foyer (notamment le site internet).</p>
+            </div>
+        </div>
+
+        <!-- Tu peux ajouter d'autres blocs ici (ex: Commerce, Jardinage, etc.) -->
+
     </div>
 
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
 
+    <!-- Script pour les boutons de défilement de chaque carrousel -->
     <script>
-        const carrousel = document.getElementById('carrouselFormation');
-        document.getElementById('leftFormation').addEventListener('click', () => {
-            carrousel.classList.remove('left', 'right');
-            carrousel.classList.add('left');
-        });
-        document.getElementById('rightFormation').addEventListener('click', () => {
-            carrousel.classList.remove('left', 'right');
-            carrousel.classList.add('right');
+        // Pour chaque bloc, on attache les événements aux boutons left/right
+        document.querySelectorAll('.bloc-formation').forEach(bloc => {
+            const container = bloc.querySelector('.carrousel-container');
+            const leftBtn = bloc.querySelector('.btn-left');
+            const rightBtn = bloc.querySelector('.btn-right');
+            
+            if (container && leftBtn && rightBtn) {
+                leftBtn.addEventListener('click', () => {
+                    container.scrollBy({ left: -300, behavior: 'smooth' });
+                });
+                rightBtn.addEventListener('click', () => {
+                    container.scrollBy({ left: 300, behavior: 'smooth' });
+                });
+            }
         });
     </script>
+
 </body>
 </html>
