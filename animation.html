@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animation - Foyer L'Espeluga</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="top-banner">
         <a href="index.html">Accueil</a>
         <a href="missions.html">Nos Missions</a>
@@ -18,85 +18,134 @@
         <a href="sorties.html">Souvenir</a>
     </div>
 
-    <section class="page-hero" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
-        <div class="hero-content">
-            <h1><i class="fas fa-calendar-alt"></i> Nos animations</h1>
-            <p>Vie collective, fêtes, ateliers – on partage, on crée, on s'amuse</p>
-        </div>
-    </section>
-
     <div class="container">
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="photos"><i class="fas fa-camera"></i> Photos</button>
-            <button class="tab-btn" data-tab="videos"><i class="fas fa-video"></i> Vidéos</button>
-        </div>
+        <a href="index.html" class="bouton-retour">← Retour à l'accueil</a>
+        <h1>🎉 ANIMATIONS & ACTIVITÉS</h1>
 
-        <!-- Onglet Photos -->
-        <div id="photos" class="tab-content active">
-            <div class="media-grid">
-                <div class="media-card">
-                    <img src="image/photo1.jpg" alt="Soirée jeux">
-                    <p>Soirée jeux de société</p>
+        <!-- CARROUSEL PHOTOS -->
+        <div class="carrousel-section">
+            <div class="carrousel-header">
+                <h2>📸 Galerie photos</h2>
+                <div class="controles-carrousel">
+                    <button class="btn-carrousel" id="leftPhotos">◀ Left</button>
+                    <button class="btn-carrousel" id="rightPhotos">Right ▶</button>
                 </div>
-                <div class="media-card">
-                    <img src="image/photo2.jpg" alt="Sortie plage">
-                    <p>Sortie à la plage</p>
-                </div>
-                <div class="media-card">
-                    <img src="image/photo3.jpg" alt="Atelier théâtre">
-                    <p>Atelier théâtre</p>
-                </div>
-                <div class="media-card">
-                    <img src="image/photo4.jpg" alt="Anniversaire">
-                    <p>Anniversaire d'Aboubacar</p>
+            </div>
+            <div class="carrousel-container">
+                <div class="carrousel left" id="carrouselPhotos">
+                    <div class="fenetre">
+                        <img src="image/photo1.jpg" alt="Soirée jeux">
+                        <h3>Soirée jeux de société</h3>
+                    </div>
+                    <div class="fenetre">
+                        <img src="image/photo2.jpg" alt="Sortie plage">
+                        <h3>Sortie à la plage</h3>
+                    </div>
+                    <div class="fenetre">
+                        <img src="image/photo3.jpg" alt="Atelier théâtre">
+                        <h3>Atelier théâtre</h3>
+                    </div>
+                    <div class="fenetre">
+                        <img src="image/photo4.jpg" alt="Anniversaire">
+                        <h3>Anniversaire d'Aboubacar</h3>
+                    </div>
+                    <!-- Duplication -->
+                    <div class="fenetre">
+                        <img src="image/photo1.jpg" alt="Soirée jeux">
+                        <h3>Soirée jeux de société</h3>
+                    </div>
+                    <div class="fenetre">
+                        <img src="image/photo2.jpg" alt="Sortie plage">
+                        <h3>Sortie à la plage</h3>
+                    </div>
+                    <div class="fenetre">
+                        <img src="image/photo3.jpg" alt="Atelier théâtre">
+                        <h3>Atelier théâtre</h3>
+                    </div>
+                    <div class="fenetre">
+                        <img src="image/photo4.jpg" alt="Anniversaire">
+                        <h3>Anniversaire d'Aboubacar</h3>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Onglet Vidéos (intégration Dailymotion ou YouTube) -->
-        <div id="videos" class="tab-content">
-            <div class="media-grid">
-                <div class="media-card">
-                    <!-- Remplace par le code iframe de ta vidéo Dailymotion -->
-                    <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8" 
-                            allowfullscreen 
-                            title="Vidéo foot">
-                    </iframe>
-                    <p>Match de foot</p>
+        <!-- CARROUSEL VIDÉOS -->
+        <div class="carrousel-section">
+            <div class="carrousel-header">
+                <h2>🎥 Vidéos</h2>
+                <div class="controles-carrousel">
+                    <button class="btn-carrousel" id="leftVideos">◀ Left</button>
+                    <button class="btn-carrousel" id="rightVideos">Right ▶</button>
                 </div>
-                <div class="media-card">
-                    <!-- Deuxième vidéo (si tu en as une) -->
-                    <iframe src="https://geo.dailymotion.com/player.html?video=TON_ID_VIDEO" 
-                            allowfullscreen>
-                    </iframe>
-                    <p>Répétition théâtre</p>
+            </div>
+            <div class="carrousel-container">
+                <div class="carrousel left" id="carrouselVideos">
+                    <!-- Exemple vidéo Dailymotion (remplace src par ton lien embed) -->
+                    <div class="fenetre">
+                        <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8" 
+                                allowfullscreen></iframe>
+                        <h3>Match de foot</h3>
+                    </div>
+                    <div class="fenetre">
+                        <iframe src="https://geo.dailymotion.com/player.html?video=TON_ID_VIDEO" 
+                                allowfullscreen></iframe>
+                        <h3>Répétition théâtre</h3>
+                    </div>
+                    <div class="fenetre">
+                        <video controls>
+                            <source src="image/video-exemple.mp4" type="video/mp4">
+                        </video>
+                        <h3>Sortie au parc</h3>
+                    </div>
+                    <!-- Duplication -->
+                    <div class="fenetre">
+                        <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8" 
+                                allowfullscreen></iframe>
+                        <h3>Match de foot</h3>
+                    </div>
+                    <div class="fenetre">
+                        <iframe src="https://geo.dailymotion.com/player.html?video=TON_ID_VIDEO" 
+                                allowfullscreen></iframe>
+                        <h3>Répétition théâtre</h3>
+                    </div>
+                    <div class="fenetre">
+                        <video controls>
+                            <source src="image/video-exemple.mp4" type="video/mp4">
+                        </video>
+                        <h3>Sortie au parc</h3>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <footer>
+        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
+    </footer>
+
     <script>
-        // Gestion des onglets
-        const btns = document.querySelectorAll('.tab-btn');
-        const contents = document.querySelectorAll('.tab-content');
-        btns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-                contents.forEach(c => c.classList.remove('active'));
-                btns.forEach(b => b.classList.remove('active'));
-                document.getElementById(tabId).classList.add('active');
-                btn.classList.add('active');
-            });
+        // Contrôle carrousel photos
+        const carrouselPhotos = document.getElementById('carrouselPhotos');
+        document.getElementById('leftPhotos').addEventListener('click', () => {
+            carrouselPhotos.classList.remove('left', 'right');
+            carrouselPhotos.classList.add('left');
+        });
+        document.getElementById('rightPhotos').addEventListener('click', () => {
+            carrouselPhotos.classList.remove('left', 'right');
+            carrouselPhotos.classList.add('right');
+        });
+
+        // Contrôle carrousel vidéos
+        const carrouselVideos = document.getElementById('carrouselVideos');
+        document.getElementById('leftVideos').addEventListener('click', () => {
+            carrouselVideos.classList.remove('left', 'right');
+            carrouselVideos.classList.add('left');
+        });
+        document.getElementById('rightVideos').addEventListener('click', () => {
+            carrouselVideos.classList.remove('left', 'right');
+            carrouselVideos.classList.add('right');
         });
     </script>
-
-    <footer>
-        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
-    </footer>
-</body>
-</html>
-    <footer>
-        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
-    </footer>
 </body>
 </html>
