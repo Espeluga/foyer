@@ -6,7 +6,6 @@
     <title>Accueil - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Image de fond spécifique à l'accueil */
         body {
             background-image: url('image/font.05.webp');
             display: flex;
@@ -14,31 +13,17 @@
             min-height: 100vh;
             margin: 0;
         }
-        /* Conteneur principal pour pousser le footer en bas */
-        .main-content {
+        /* Le contenu (hero) prend tout l'espace restant pour pousser le footer en bas */
+        .hero {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
         }
-        /* Style du titre (identique à l'ancien hero) */
-        .main-content h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 5rem;
-            background: linear-gradient(45deg, #FF5E00, #FF00FF);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: none;
-            margin: 0;
-            letter-spacing: 2px;
-        }
+        /* On s'assure que le footer reste en bas sans marges supplémentaires */
         footer {
             margin-top: 0;
-        }
-        @media (max-width: 600px) {
-            .main-content h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -53,10 +38,15 @@
         <a href="sorties.html">Sorties</a>
     </div>
 
-    <!-- Contenu principal : uniquement le titre -->
-    <div class="main-content">
-        <h1>Foyer L'Espeluga</h1>
-    </div>
+    <!-- Section hero conservée intacte (style inchangé) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Foyer L'Espeluga</h1>
+            <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
+        </div>
+    </section>
+
+    <!-- Bloc container supprimé (celui avec le fond blanc) -->
 
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
