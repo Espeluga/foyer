@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formation - Foyer L'Espeluga</title>
+    <title>Animation - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -12,9 +12,64 @@
             background-position: center;
             background-attachment: fixed;
         }
-        /* Optionnel : assombrir un peu pour que le texte soit lisible */
         body::before {
             background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Ajustement pour que les fenêtres ne défilent pas automatiquement */
+        .carrousel {
+            display: flex;
+            gap: 30px;
+            width: fit-content;
+            /* Suppression des animations left/right */
+        }
+        .carrousel-container {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+            scrollbar-width: thin;
+        }
+        .carrousel-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .carrousel-container::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+        .carrousel-container::-webkit-scrollbar-thumb {
+            background: #ffd700;
+            border-radius: 10px;
+        }
+
+        /* Style lightbox (agrandissement photo) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255,215,0,0.5);
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        /* Ajustement pour que les vidéos restent lisibles */
+        .fenetre iframe, .fenetre video {
+            width: 100%;
+            height: 200px;
+            border: none;
         }
     </style>
 </head>
@@ -32,9 +87,9 @@
 
     <div class="container">
         <a href="index.html" class="bouton-retour">← Retour à l'accueil</a>
-        <h1>🎉 ANIMATIONS & ACTIVITÉS</h1>
+        <h1>📸 Nos animations</h1>    
 
-        <!-- CARROUSEL PHOTOS -->
+        <!-- CARROUSEL PHOTOS (défilement manuel) -->
         <div class="carrousel-section">
             <div class="carrousel-header">
                 <h2>📸 Galerie photos</h2>
@@ -43,31 +98,30 @@
                     <button class="btn-carrousel" id="rightPhotos">Right ▶</button>
                 </div>
             </div>
-            <div class="carrousel-container">
-                <div class="carrousel left" id="carrouselPhotos">
+            <div class="carrousel-container" id="carrouselPhotosContainer">
+                <div class="carrousel" id="carrouselPhotos">
                     <div class="fenetre">
-                        <img src="image/sortie.jeune.laser.jpg" alt="   ">
+                        <img src="image/sortie.jeune.laser.jpg" alt="Sortie laser quest Antibes">
                         <h3>Sortie laser quest Antibes</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/sortie.06.jpg" alt="  ">
+                        <img src="image/sortie.06.jpg" alt="Moment détente">
                         <h3>Moment détente</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/sortie.01.jpg" alt="   ">
+                        <img src="image/sortie.01.jpg" alt="Randonnée en montagne">
                         <h3>Randonnée en montagne</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/sortie.jeune.rivierra.2.jpg" alt="   ">
+                        <img src="image/sortie.jeune.rivierra.2.jpg" alt="Découverte du littoral">
                         <h3>Découverte du littoral</h3>
                     </div>
-                    <!-- Duplication -->
                     <div class="fenetre">
-                        <img src="image/sortie.02.jpg" alt="  ">
-                        <h3>Quand il fait beau !! </h3>
+                        <img src="image/sortie.02.jpg" alt="Quand il fait beau">
+                        <h3>Quand il fait beau !!</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/sortie.04.jpg" alt="   ">
+                        <img src="image/sortie.04.jpg" alt="Balade sur le cap d'Antibes">
                         <h3>Balade sur le cap d'Antibes</h3>
                     </div>
                     <div class="fenetre">
@@ -75,14 +129,14 @@
                         <h3>Atelier théâtre</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/photo4.jpg" alt="Anniversaire">
+                        <img src="image/photo4.jpg" alt="Anniversaire d'Aboubacar">
                         <h3>Anniversaire d'Aboubacar</h3>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- CARROUSEL VIDÉOS -->
+        <!-- CARROUSEL VIDÉOS (défilement manuel) -->
         <div class="carrousel-section">
             <div class="carrousel-header">
                 <h2>🎥 Vidéos</h2>
@@ -91,34 +145,26 @@
                     <button class="btn-carrousel" id="rightVideos">Right ▶</button>
                 </div>
             </div>
-            <div class="carrousel-container">
-                <div class="carrousel left" id="carrouselVideos">
-                    <!-- Exemple vidéo Dailymotion (remplace src par ton lien embed) -->
+            <div class="carrousel-container" id="carrouselVideosContainer">
+                <div class="carrousel" id="carrouselVideos">
                     <div class="fenetre">
-                        <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8" 
-                                allowfullscreen></iframe>
+                        <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8&autoplay=0&queue-enable=false" allowfullscreen></iframe>
                         <h3>Initiation à la boxe avec Mamadou</h3>
                     </div>
                     <div class="fenetre">
-                        <iframe src="https://geo.dailymotion.com/player.html?video=k2hfSt8w0N5dRSFyXJe" 
-                                allowfullscreen></iframe>
+                        <iframe src="https://geo.dailymotion.com/player.html?video=k2hfSt8w0N5dRSFyXJe&autoplay=0&queue-enable=false" allowfullscreen></iframe>
                         <h3>Elisa montre sa force!</h3>
                     </div>
                     <div class="fenetre">
-                        <video controls>
-                            <source src="https://geo.dailymotion.com/player.html?video=koEP77VoE2rffDFyXEu" type="video/mp4">
-                        </video>
-                        <h3>Technique de boxe par Christian </h3>
+                        <iframe src="https://geo.dailymotion.com/player.html?video=koEP77VoE2rffDFyXEu&autoplay=0&queue-enable=false" allowfullscreen></iframe>
+                        <h3>Technique de boxe par Christian</h3>
                     </div>
-                    <!-- Duplication -->
                     <div class="fenetre">
-                        <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8" 
-                                allowfullscreen></iframe>
+                        <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8&autoplay=0&queue-enable=false" allowfullscreen></iframe>
                         <h3>Match de foot</h3>
                     </div>
                     <div class="fenetre">
-                        <iframe src="https://geo.dailymotion.com/player.html?video=TON_ID_VIDEO" 
-                                allowfullscreen></iframe>
+                        <iframe src="https://geo.dailymotion.com/player.html?video=TON_ID_VIDEO&autoplay=0&queue-enable=false" allowfullscreen></iframe>
                         <h3>Répétition théâtre</h3>
                     </div>
                     <div class="fenetre">
@@ -136,27 +182,56 @@
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
 
+    <!-- Lightbox pour les photos -->
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
     <script>
-        // Contrôle carrousel photos
-        const carrouselPhotos = document.getElementById('carrouselPhotos');
+        // ===== 1. DÉFILEMENT MANUEL DES CARROUSELS =====
+        // Photos
+        const photosContainer = document.getElementById('carrouselPhotosContainer');
         document.getElementById('leftPhotos').addEventListener('click', () => {
-            carrouselPhotos.classList.remove('left', 'right');
-            carrouselPhotos.classList.add('left');
+            photosContainer.scrollBy({ left: -300, behavior: 'smooth' });
         });
         document.getElementById('rightPhotos').addEventListener('click', () => {
-            carrouselPhotos.classList.remove('left', 'right');
-            carrouselPhotos.classList.add('right');
+            photosContainer.scrollBy({ left: 300, behavior: 'smooth' });
         });
-
-        // Contrôle carrousel vidéos
-        const carrouselVideos = document.getElementById('carrouselVideos');
+        // Vidéos
+        const videosContainer = document.getElementById('carrouselVideosContainer');
         document.getElementById('leftVideos').addEventListener('click', () => {
-            carrouselVideos.classList.remove('left', 'right');
-            carrouselVideos.classList.add('left');
+            videosContainer.scrollBy({ left: -300, behavior: 'smooth' });
         });
         document.getElementById('rightVideos').addEventListener('click', () => {
-            carrouselVideos.classList.remove('left', 'right');
-            carrouselVideos.classList.add('right');
+            videosContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        // ===== 2. LIGHTBOX : agrandissement des photos au clic =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const allImages = document.querySelectorAll('#carrouselPhotos .fenetre img');
+        
+        allImages.forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+        
+        // Fermer la lightbox au clic sur le fond ou sur l'image
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+        });
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+            }
         });
     </script>
 </body>
