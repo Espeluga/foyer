@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formation - Foyer L'Espeluga</title>
+    <title>Souvenirs - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -12,9 +12,85 @@
             background-position: center;
             background-attachment: fixed;
         }
-        /* Optionnel : assombrir un peu pour que le texte soit lisible */
         body::before {
             background: rgba(0, 0, 0, 0.5);
+        }
+        /* Style spécifique pour les fenêtres du carrousel souvenir */
+        .fenetre-souvenir {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 20px;
+            padding: 15px;
+            width: 280px;          /* largeur fixe */
+            flex-shrink: 0;        /* empêche le rétrécissement */
+            text-align: center;
+            transition: 0.3s;
+        }
+        .fenetre-souvenir:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #ffd700;
+        }
+        .fenetre-souvenir img {
+            width: 100%;
+            height: 200px;         /* hauteur fixe */
+            object-fit: cover;     /* l'image remplit le cadre sans déformation */
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+        .fenetre-souvenir h3 {
+            color: white;
+            font-size: 1rem;
+            margin: 0;
+            font-weight: normal;
+        }
+        /* Conteneur du carrousel avec défilement horizontal */
+        .carrousel-container {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            padding: 20px 0;
+            scrollbar-width: thin;
+        }
+        .carrousel-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .carrousel-container::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+        .carrousel-container::-webkit-scrollbar-thumb {
+            background: #ffd700;
+            border-radius: 10px;
+        }
+        .carrousel {
+            display: flex;
+            gap: 20px;
+            width: fit-content;
+        }
+        /* Ajustement des boutons (déjà dans style.css, mais on rappelle) */
+        .btn-carrousel {
+            padding: 8px 20px;
+            background: rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid #ffd700;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .btn-carrousel:hover {
+            background: #ffd700;
+            color: black;
+        }
+        .carrousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -32,65 +108,50 @@
 
     <div class="container">
         <a href="index.html" class="bouton-retour">← Retour à l'accueil</a>
-        <h1>📚 SOUVENIRS</h1>
+        <h1>📸 SOUVENIRS</h1>
 
-        <!-- Carrousel des filières -->
         <div class="carrousel-section">
             <div class="carrousel-header">
-                <h2>Nos filières en images</h2>
+                <h2>Nos moments forts</h2>
                 <div class="controles-carrousel">
-                    <button class="btn-carrousel" id="leftFormation">◀ Left</button>
-                    <button class="btn-carrousel" id="rightFormation">Right ▶</button>
+                    <button class="btn-carrousel" id="leftSouvenir">◀ Left</button>
+                    <button class="btn-carrousel" id="rightSouvenir">Right ▶</button>
                 </div>
             </div>
-            <div class="carrousel-container">
-                <div class="carrousel left" id="carrouselFormation">
-                    <div class="fenetre">
-                        <img src="image/sortie.07.jpg" alt="  ">
-                        <h3> </h3>
+            <div class="carrousel-container" id="carrouselContainer">
+                <div class="carrousel" id="carrouselSouvenir">
+                    <!-- Chaque fenêtre a une taille fixe, l'image s'adapte -->
+                    <div class="fenetre-souvenir">
+                        <img src="image/sortie.07.jpg" alt="Sortie">
+                        <h3>Sortie au parc</h3>
                     </div>
-                    <div class="    ">  
-                        <img src="image/sport.02.jpg" alt="BTP">
-                        <h3>    </h3>
+                    <div class="fenetre-souvenir">
+                        <img src="image/sport.02.jpg" alt="Sport">
+                        <h3>Tournoi de foot</h3>
                     </div>
-                    <div class="fenetre">
-                        <img src="image/sortie.jeune.laser.jpg" alt="  ">
-                        <h3>  </h3>
+                    <div class="fenetre-souvenir">
+                        <img src="image/sortie.jeune.laser.jpg" alt="Laser game">
+                        <h3>Laser game</h3>
                     </div>
-                    <div class="fenetre">
-                        <img src="image/sortie.01.jpg" alt="  ">
-                        <h3>  </h3>
+                    <div class="fenetre-souvenir">
+                        <img src="image/sortie.01.jpg" alt="Sortie">
+                        <h3>Journée plage</h3>
                     </div>
-                    <div class="   ">
-                        <img src="image/sortie.05.jpg" alt="   ">
-                        <h3>  </h3>
+                    <div class="fenetre-souvenir">
+                        <img src="image/sortie.05.jpg" alt="Sortie">
+                        <h3>Randonnée</h3>
                     </div>
-                    <!-- Duplication -->
-                    <div class="fenetre">
-                        <img src="image/atelier-cuisine.jpg" alt="Cuisine">
-                        <h3>CAP Cuisine</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-btp.jpg" alt="BTP">
-                        <h3>Prépa BTP</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-numerique.jpg" alt="Numérique">
-                        <h3>Remise à niveau numérique</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-commerce.jpg" alt="Commerce">
-                        <h3>Vente & commerce</h3>
-                    </div>
-                    <div class="fenetre">
-                        <img src="image/atelier-jardin.jpg" alt="Jardinage">
-                        <h3>Jardinage & insertion</h3>
+                    <!-- Ajoute autant de fenêtres que nécessaire -->
+                    <!-- Pour l'exemple, on duplique quelques unes pour avoir un effet de longueur -->
+                    <div class="fenetre-souvenir">
+                        <img src="image/sortie.07.jpg" alt="Sortie">
+                        <h3>Autre souvenir</h3>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Lecteur audio (optionnel, comme dans Teddy) -->
+        <!-- Musique d'ambiance (optionnel) -->
         <div style="text-align: center; margin-top: 40px;">
             <div style="background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 50px; padding: 15px; display: inline-block; width: auto;">
                 <p style="color: white; margin-bottom: 10px;">🎵 Musique d'ambiance</p>
@@ -107,14 +168,15 @@
     </footer>
 
     <script>
-        const carrousel = document.getElementById('carrouselFormation');
-        document.getElementById('leftFormation').addEventListener('click', () => {
-            carrousel.classList.remove('left', 'right');
-            carrousel.classList.add('left');
+        const container = document.getElementById('carrouselContainer');
+        const leftBtn = document.getElementById('leftSouvenir');
+        const rightBtn = document.getElementById('rightSouvenir');
+
+        leftBtn.addEventListener('click', () => {
+            container.scrollBy({ left: -300, behavior: 'smooth' });
         });
-        document.getElementById('rightFormation').addEventListener('click', () => {
-            carrousel.classList.remove('left', 'right');
-            carrousel.classList.add('right');
+        rightBtn.addEventListener('click', () => {
+            container.scrollBy({ left: 300, behavior: 'smooth' });
         });
     </script>
 </body>
