@@ -2,7 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Animations - Galerie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation - Foyer L'Espeluga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,47 +18,57 @@
         <a href="sorties.html">Souvenir</a>
     </div>
 
+    <section class="page-hero" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
+        <div class="hero-content">
+            <h1><i class="fas fa-calendar-alt"></i> Nos animations</h1>
+            <p>Vie collective, fêtes, ateliers – on partage, on crée, on s'amuse</p>
+        </div>
+    </section>
+
     <div class="container">
-        <div class="page-header">
-            <h1>Nos animations</h1>
-        </div>
-
         <div class="tabs">
-            <button class="tab-btn active" data-tab="photos">📸 Photos</button>
-            <button class="tab-btn" data-tab="videos">🎥 Vidéos</button>
+            <button class="tab-btn active" data-tab="photos"><i class="fas fa-camera"></i> Photos</button>
+            <button class="tab-btn" data-tab="videos"><i class="fas fa-video"></i> Vidéos</button>
         </div>
 
+        <!-- Onglet Photos -->
         <div id="photos" class="tab-content active">
             <div class="media-grid">
-                <div class="media-card"><img src="image/coco.chloe.course.jpg" alt="Ambiance on fait les Courses!"><p>Soirée jeux de société</p></div>
-                <div class="media-card"><img src="image/photo2.jpg" alt="Sortie plage"><p>Sortie à la plage</p></div>
-                <div class="media-card"><img src="image/photo3.jpg" alt="Atelier théâtre"><p>Atelier théâtre</p></div>
-                <div class="media-card"><img src="image/photo4.jpg" alt="Fête d'anniversaire"><p>Anniversaire d'Aboubacar</p></div>
+                <div class="media-card">
+                    <img src="image/photo1.jpg" alt="Soirée jeux">
+                    <p>Soirée jeux de société</p>
+                </div>
+                <div class="media-card">
+                    <img src="image/photo2.jpg" alt="Sortie plage">
+                    <p>Sortie à la plage</p>
+                </div>
+                <div class="media-card">
+                    <img src="image/photo3.jpg" alt="Atelier théâtre">
+                    <p>Atelier théâtre</p>
+                </div>
+                <div class="media-card">
+                    <img src="image/photo4.jpg" alt="Anniversaire">
+                    <p>Anniversaire d'Aboubacar</p>
+                </div>
             </div>
         </div>
 
-     <div id="videos" class="tab-content">
-    <div class="media-grid">
-        <div class="media-card">
-            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-                <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8"
-                        style="width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden; border:none;"
-                        allowfullscreen
-                        title="Dailymotion Video Player"
-                        allow="web-share">
-                </iframe>
-            </div>
-     
-</div>
-            <p>Match de foot</p>
-        </div>
-        <!-- Tu peux ajouter d'autres vidéos ici, de la même façon -->
-    </div>
-</div>
+        <!-- Onglet Vidéos (intégration Dailymotion ou YouTube) -->
+        <div id="videos" class="tab-content">
+            <div class="media-grid">
                 <div class="media-card">
-                    <video controls>
-                        <source src="https://dai.ly/xa5lnk8" type="video/mp4">
-                    </video>
+                    <!-- Remplace par le code iframe de ta vidéo Dailymotion -->
+                    <iframe src="https://geo.dailymotion.com/player.html?video=xa5lnk8" 
+                            allowfullscreen 
+                            title="Vidéo foot">
+                    </iframe>
+                    <p>Match de foot</p>
+                </div>
+                <div class="media-card">
+                    <!-- Deuxième vidéo (si tu en as une) -->
+                    <iframe src="https://geo.dailymotion.com/player.html?video=TON_ID_VIDEO" 
+                            allowfullscreen>
+                    </iframe>
                     <p>Répétition théâtre</p>
                 </div>
             </div>
@@ -70,7 +82,7 @@
         btns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabId = btn.getAttribute('data-tab');
-                contents.forEach(content => content.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
                 btns.forEach(b => b.classList.remove('active'));
                 document.getElementById(tabId).classList.add('active');
                 btn.classList.add('active');
@@ -78,6 +90,11 @@
         });
     </script>
 
+    <footer>
+        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
+    </footer>
+</body>
+</html>
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
