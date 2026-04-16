@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Souvenirs - Foyer L'Espeluga</title>
+    <title>Formation - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
     <div class="top-banner">
         <a href="index.html">Accueil</a>
         <a href="missions.html">Nos Missions</a>
@@ -21,54 +20,72 @@
 
     <div class="container">
         <a href="index.html" class="bouton-retour">← Retour à l'accueil</a>
-        <h1>📸 NOS SOUVENIRS</h1>
+        <h1>📚 SOUVENIRS</h1>
 
-        <!-- Carrousel unique pour les sorties -->
+        <!-- Carrousel des filières -->
         <div class="carrousel-section">
             <div class="carrousel-header">
-                <h2>Album photo</h2>
+                <h2>Nos filières en images</h2>
                 <div class="controles-carrousel">
-                    <button class="btn-carrousel" id="leftSorties">◀ Left</button>
-                    <button class="btn-carrousel" id="rightSorties">Right ▶</button>
+                    <button class="btn-carrousel" id="leftFormation">◀ Left</button>
+                    <button class="btn-carrousel" id="rightFormation">Right ▶</button>
                 </div>
             </div>
             <div class="carrousel-container">
-                <div class="carrousel left" id="carrouselSorties">
-                    <!-- Chaque souvenir est une "fenêtre" -->
+                <div class="carrousel left" id="carrouselFormation">
                     <div class="fenetre">
-                        <img src="image/souvenir1.jpg" alt="Randonnée">
-                        <h3>Randonnée dans les Pyrénées – mars 2026</h3>
+                        <img src="image/atelier-cuisine.jpg" alt="Cuisine">
+                        <h3>CAP Cuisine</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/souvenir2.jpg" alt="Cinéma">
-                        <h3>Soirée cinéma en plein air – été 2025</h3>
+                        <img src="image/atelier-btp.jpg" alt="BTP">
+                        <h3>Prépa BTP</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/souvenir3.jpg" alt="Graffiti">
-                        <h3>Atelier graffiti avec un artiste local</h3>
+                        <img src="image/atelier-numerique.jpg" alt="Numérique">
+                        <h3>Remise à niveau numérique</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/souvenir4.jpg" alt="Repas du monde">
-                        <h3>Repas du monde – spécialités de chacun</h3>
-                    </div>
-                    <!-- Duplication pour l'effet infini (mêmes éléments) -->
-                    <div class="fenetre">
-                        <img src="image/souvenir1.jpg" alt="Randonnée">
-                        <h3>Randonnée dans les Pyrénées – mars 2026</h3>
+                        <img src="image/atelier-commerce.jpg" alt="Commerce">
+                        <h3>Vente & commerce</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/souvenir2.jpg" alt="Cinéma">
-                        <h3>Soirée cinéma en plein air – été 2025</h3>
+                        <img src="image/atelier-jardin.jpg" alt="Jardinage">
+                        <h3>Jardinage & insertion</h3>
+                    </div>
+                    <!-- Duplication -->
+                    <div class="fenetre">
+                        <img src="image/atelier-cuisine.jpg" alt="Cuisine">
+                        <h3>CAP Cuisine</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/souvenir3.jpg" alt="Graffiti">
-                        <h3>Atelier graffiti avec un artiste local</h3>
+                        <img src="image/atelier-btp.jpg" alt="BTP">
+                        <h3>Prépa BTP</h3>
                     </div>
                     <div class="fenetre">
-                        <img src="image/souvenir4.jpg" alt="Repas du monde">
-                        <h3>Repas du monde – spécialités de chacun</h3>
+                        <img src="image/atelier-numerique.jpg" alt="Numérique">
+                        <h3>Remise à niveau numérique</h3>
+                    </div>
+                    <div class="fenetre">
+                        <img src="image/atelier-commerce.jpg" alt="Commerce">
+                        <h3>Vente & commerce</h3>
+                    </div>
+                    <div class="fenetre">
+                        <img src="image/atelier-jardin.jpg" alt="Jardinage">
+                        <h3>Jardinage & insertion</h3>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Lecteur audio (optionnel, comme dans Teddy) -->
+        <div style="text-align: center; margin-top: 40px;">
+            <div style="background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 50px; padding: 15px; display: inline-block; width: auto;">
+                <p style="color: white; margin-bottom: 10px;">🎵 Musique d'ambiance</p>
+                <audio controls>
+                    <source src="musique/ambiance.mp3" type="audio/mpeg">
+                    Ton navigateur ne supporte pas l'audio.
+                </audio>
             </div>
         </div>
     </div>
@@ -78,16 +95,12 @@
     </footer>
 
     <script>
-        // Gestion des boutons pour le carrousel des sorties
-        const carrousel = document.getElementById('carrouselSorties');
-        const leftBtn = document.getElementById('leftSorties');
-        const rightBtn = document.getElementById('rightSorties');
-
-        leftBtn.addEventListener('click', () => {
+        const carrousel = document.getElementById('carrouselFormation');
+        document.getElementById('leftFormation').addEventListener('click', () => {
             carrousel.classList.remove('left', 'right');
             carrousel.classList.add('left');
         });
-        rightBtn.addEventListener('click', () => {
+        document.getElementById('rightFormation').addEventListener('click', () => {
             carrousel.classList.remove('left', 'right');
             carrousel.classList.add('right');
         });
