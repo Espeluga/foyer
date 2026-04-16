@@ -6,12 +6,45 @@
     <title>Accueil - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Ajustement pour que le footer reste en bas */
         body {
-            background-image: url('image/font.05.webp');
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container-accueil {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .accueil-texte h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 8px black;
+        }
+        .accueil-texte p {
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 1px 1px 4px black;
+            max-width: 800px;
+        }
+        footer {
+            margin-top: 0;
+        }
+        @media (max-width: 600px) {
+            .accueil-texte h1 { font-size: 2.5rem; }
+            .accueil-texte p { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Bande de navigation (identique) -->
     <div class="top-banner">
         <a href="index.html">Accueil</a>
         <a href="missions.html">Nos Missions</a>
@@ -19,20 +52,21 @@
         <a href="espeluga.html">L'Espeluga</a>
         <a href="formation.html">Formation</a>
         <a href="animation.html">Animation</a>
-        <a href="sorties.html">Sorties</a>
+        <a href="sorties.html">Souvenir</a>
     </div>
 
-    <section class="hero">
-        <div class="hero-content">
+    <!-- Contenu principal centré (horizontalement et légèrement en haut) -->
+    <div class="container-accueil">
+        <div class="accueil-texte">
             <h1>Foyer L'Espeluga</h1>
             <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
         </div>
-    </section>
-
     </div>
 
+    <!-- Pied de page en bas -->
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
+
 </body>
 </html>
