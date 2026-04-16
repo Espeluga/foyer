@@ -2,7 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Souvenir - Album photo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos souvenirs - Foyer L'Espeluga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,29 +18,32 @@
         <a href="sorties.html">Souvenir</a>
     </div>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Nos souvenirs</h1>
-            <p>Des moments forts partagés</p>
+    <section class="page-hero" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+        <div class="hero-content">
+            <h1><i class="fas fa-camera-retro"></i> Souvenirs du foyer</h1>
+            <p>Des moments partagés, des sourires, des aventures</p>
         </div>
+    </section>
 
+    <div class="container">
         <div class="album-grid">
-            <div class="Sortie Jeune">
-                <img src="image/sortie.jeune.rivierra.2.jpg" alt="Découverte Rivierra">
-                <div class="legend">Randonnée dans les Pyrénées – mars 2026</div>
-            </div>
-            <div class="Sortie Jeune">
-                <img src="image/sortie.jeune.rivierra.jpg" alt="Découverte Rivierra">
-                <div class="legend">Soirée cinéma en plein air – été 2025</div>
+            <div class="souvenir-card">
+                <img src="image/souvenir1.jpg" alt="Randonnée">
+                <div class="legend"><i class="fas fa-hiking"></i> Randonnée dans les Pyrénées – mars 2026</div>
             </div>
             <div class="souvenir-card">
-                <img src="image/souvenir3.jpg" alt="Atelier graffiti">
-                <div class="legend">Atelier graffiti avec un artiste local</div>
+                <img src="image/souvenir2.jpg" alt="Cinéma">
+                <div class="legend"><i class="fas fa-film"></i> Soirée cinéma en plein air – été 2025</div>
             </div>
             <div class="souvenir-card">
-                <img src="image/souvenir4.jpg" alt="Repas partagé">
-                <div class="legend">Repas du monde – chacun a cuisiné sa spécialité</div>
+                <img src="image/souvenir3.jpg" alt="Graffiti">
+                <div class="legend"><i class="fas fa-paintbrush"></i> Atelier graffiti avec un artiste local</div>
             </div>
+            <div class="souvenir-card">
+                <img src="image/souvenir4.jpg" alt="Repas du monde">
+                <div class="legend"><i class="fas fa-utensils"></i> Repas du monde – spécialités de chacun</div>
+            </div>
+            <!-- Ajoute autant de cartes que nécessaire -->
         </div>
     </div>
 
