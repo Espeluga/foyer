@@ -8,8 +8,8 @@
 body {
     font-family: 'Arial', 'Inter', sans-serif;
     min-height: 100vh;
-    /* Change l'image de fond ici */
-    background-image: url('image/fond-espeluga.jpg');
+    /* Plus d'image de fond globale – on la mettra page par page */
+    /* background-image: url('image/font.05.webp'); */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -378,3 +378,38 @@ footer {
 
 </body>
 </html>
+/* Vidéo dans la page formation */
+.video-formation {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
+.video-formation h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* ratio 16/9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.video-caption {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
