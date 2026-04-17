@@ -1,35 +1,50 @@
-export function middleware(request) {
-  const auth = request.cookies.get('auth');
+// middleware.js - Version simplifiée pour Vercel (Edge Runtime)
+
+export const config = {
+  matcher: '/(.*)', // Protège toutes les pages
+};
+
+export default function middleware(request) {
+  // Vérifie si l'utilisateur est déjà authentifié
+  const authCookie = request.cookies.get('auth');
   
-  if (auth === 'true') {
-    return;
+  if (authCookie === 'true') {
+    return; // Laisse passer
   }
   
+  // Vérifie si le mot de passe est fourni dans l'URL
   const url = new URL(request.url);
   const password = url.searchParams.get('password');
   
-  // ⬇️ CHANGE ICI : mets ton mot de passe entre les guillemets
+  // ⬇️ Remplace 'MonMotDePasse' par ton mot de passe
   if (password === 'Chato9@06740') {
-    const response = new Response(null, { status: 302, headers: { Location: '/' } });
-    response.cookies.set('auth', 'true', { maxAge: 60 * 60 * 24 * 30 });
+    // Mot de passe correct : on crée un cookie et on redirige
+    const response = new Response(null, {
+      status: 302,
+      headers: { 'Location': '/' }
+    });
+    response.cookies.set('auth', 'true', {
+      maxAge: 30 * 24 * 60 * 60, // 30 jours
+      path: '/',
+    });
     return response;
   }
   
+  // Mot de passe incorrect ou absent : on affiche la page de login
   return new Response(
     `<!DOCTYPE html>
     <html>
     <head>
       <meta charset="UTF-8">
-      <title>Accès privé - Foyer L'Espeluga</title>
+      <title>Accès privé</title>
       <style>
         body {
-          font-family: Arial, sans-serif;
           background: #0D0D0D;
           display: flex;
           justify-content: center;
           align-items: center;
           height: 100vh;
-          margin: 0;
+          font-family: Arial, sans-serif;
         }
         .login {
           background: rgba(255,255,255,0.1);
@@ -39,7 +54,7 @@ export function middleware(request) {
           text-align: center;
           border: 1px solid #ffd700;
         }
-        h1 { color: #ffd700; margin-bottom: 1rem; }
+        h1 { color: #ffd700; }
         input, button {
           padding: 0.8rem;
           margin: 0.5rem;
