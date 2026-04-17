@@ -73,7 +73,7 @@ export default function handler(req, res) {
     <h1>🔒 Site privé</h1>
     <p>Réservé à l'équipe et aux jeunes du foyer</p>
     <form method="GET">
-      <input type="password" name="password" placeholder="Chato9@06740" autofocus>
+      <input type="password" name="password" placeholder="Mot de passe" autofocus>
       <button type="submit">Se connecter</button>
     </form>
   </div>
