@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'ESPELUGA</title>
+    <title>Nos Missions - Foyer L'Espeluga</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Fond spécifique pour la page équipe */
         body {
             background-image: url('image/font.05.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-        /* Overlay plus sombre pour que les cartes ressortent */
         body::before {
             background: rgba(0, 0, 0, 0.6);
         }
 
-        /* ===== MUR D'ÉQUIPE ===== */
-        .team-grid {
+        .missions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 1100px;
             margin: 0 auto;
         }
-        /* Limite à 3 cartes par ligne sur grand écran */
         @media (min-width: 1000px) {
-            .team-grid {
+            .missions-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        /* Carte style glassmorphism (comme fenetre-formation) */
-        .team-card {
+        .mission-card {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 215, 0, 0.5);
@@ -43,15 +38,17 @@
             text-align: center;
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
         }
-        .team-card:hover {
+        .mission-card:hover {
             transform: translateY(-8px);
             background: rgba(255, 255, 255, 0.25);
             border-color: #ffd700;
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
-        /* Photo qui remplit le cadre */
-        .team-card img {
+        .mission-card img {
             width: 100%;
             height: 260px;
             object-fit: cover;
@@ -60,10 +57,10 @@
             border: 2px solid rgba(255, 215, 0, 0.6);
             transition: transform 0.3s;
         }
-        .team-card:hover img {
+        .mission-card:hover img {
             transform: scale(1.02);
         }
-        .team-card h3 {
+        .mission-card h3 {
             font-size: 1.8rem;
             margin: 0.5rem 0;
             color: #ffd700;
@@ -71,28 +68,17 @@
             font-family: 'Bebas Neue', cursive;
             letter-spacing: 1px;
         }
-        .team-card p {
+        .mission-card p {
             font-size: 1rem;
             color: white;
             font-weight: 600;
             margin: 0.5rem 0;
         }
-        .role {
-            display: block;
-            font-size: 0.85rem;
-            color: #f0f0f0;
-            background: rgba(0,0,0,0.4);
-            padding: 0.5rem;
-            border-radius: 30px;
-            margin-top: 0.8rem;
-            font-style: italic;
-        }
-        /* Ajustement responsive */
         @media (max-width: 700px) {
-            .team-card img {
+            .mission-card img {
                 height: 200px;
             }
-            .team-card h3 {
+            .mission-card h3 {
                 font-size: 1.4rem;
             }
         }
@@ -108,39 +94,29 @@
         <a href="animation.html">Animation</a>
         <a href="sorties.html">Souvenir</a>
     </div>
-    </section>
 
     <div class="container">
-        <div class="team-grid">
-            <!-- Carte 1 -->
-            <div class="team-card">
-                <img src="image/courrousel.vie.cote.jpg" alt="   ">
+        <div class="missions-grid">
+            <a href="viequotidienne.html" class="mission-card">
+                <img src="image/courrousel.vie.cote.jpg" alt="Vie quotidienne">
                 <h3>VIE QUOTIDIENNE</h3>
-                <p> Accompagner chaque jeune dans son autonomie et le savoir vivre</p>
-                <span class="role">   </span>
-            </div>
-            <!-- Carte 2 -->
-            <div class="team-card">
-                <img src="image/courrousel.sante.jpg" alt="Nico">
+                <p>Accompagner chaque jeune dans son autonomie et le savoir vivre</p>
+            </a>
+            <a href="sante.html" class="mission-card">
+                <img src="image/courrousel.sante.jpg" alt="Santé">
                 <h3>SANTE</h3>
                 <p>Assurer la santé morale et physique de chaque jeune est une priorité</p>
-                <span class="role">   </span>
-            </div>
-            <!-- Carte 3 -->
-            <div class="team-card">
-                <img src="image/courrousel.apprentissage.jpg" alt="    ">
+            </a>
+            <a href="insertionpro.html" class="mission-card">
+                <img src="image/courrousel.apprentissage.jpg" alt="Insertion pro">
                 <h3>INSERTION PRO</h3>
                 <p>Permettre à chaque jeune d'apprendre un métier et d'assurer son avenir</p>
-                <span class="role">    </span>
-            </div>
-            <!-- Carte 4 -->
-            <div class="team-card">
-                <img src="image/courrousel.social.jpg" alt="Nadia">
+            </a>
+            <a href="viesociale.html" class="mission-card">
+                <img src="image/courrousel.social.jpg" alt="Vie sociale">
                 <h3>VIE SOCIALE</h3>
-                <p>Faire que tout les jeunes s'épanouissent et trouvent leur place dans la société à travers le sport, les loisirs et la culture</p>
-                <span class="role">   </span>
-            </div>
-            <!-- Tu peux ajouter d'autres cartes ici, elles passeront à la ligne automatiquement -->
+                <p>Faire que tous les jeunes s'épanouissent et trouvent leur place dans la société</p>
+            </a>
         </div>
     </div>
 
