@@ -15,6 +15,7 @@
         body::before {
             background: rgba(0, 0, 0, 0.5);
         }
+
         /* Style spécifique pour les fenêtres du carrousel souvenir */
         .fenetre-souvenir {
             background: rgba(255, 255, 255, 0.15);
@@ -22,10 +23,11 @@
             border: 1px solid rgba(255, 215, 0, 0.5);
             border-radius: 20px;
             padding: 15px;
-            width: 280px;          /* largeur fixe */
-            flex-shrink: 0;        /* empêche le rétrécissement */
+            width: 280px;
+            flex-shrink: 0;
             text-align: center;
             transition: 0.3s;
+            cursor: pointer;
         }
         .fenetre-souvenir:hover {
             transform: translateY(-5px);
@@ -34,10 +36,11 @@
         }
         .fenetre-souvenir img {
             width: 100%;
-            height: 200px;         /* hauteur fixe */
-            object-fit: cover;     /* l'image remplit le cadre sans déformation */
+            height: 200px;
+            object-fit: cover;
             border-radius: 12px;
             margin-bottom: 10px;
+            cursor: pointer;
         }
         .fenetre-souvenir h3 {
             color: white;
@@ -45,6 +48,7 @@
             margin: 0;
             font-weight: normal;
         }
+
         /* Conteneur du carrousel avec défilement horizontal */
         .carrousel-container {
             overflow-x: auto;
@@ -69,7 +73,8 @@
             gap: 20px;
             width: fit-content;
         }
-        /* Ajustement des boutons (déjà dans style.css, mais on rappelle) */
+
+        /* Boutons */
         .btn-carrousel {
             padding: 8px 20px;
             background: rgba(255, 215, 0, 0.2);
@@ -91,6 +96,48 @@
             align-items: center;
             flex-wrap: wrap;
             margin-bottom: 1rem;
+        }
+
+        /* ===== LIGHTBOX (agrandissement des photos) ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 3px solid #ffd700;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            background: none;
+            border: none;
+            font-weight: bold;
+        }
+        .close-lightbox:hover {
+            color: #ffd700;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -120,13 +167,12 @@
             </div>
             <div class="carrousel-container" id="carrouselContainer">
                 <div class="carrousel" id="carrouselSouvenir">
-                    <!-- Chaque fenêtre a une taille fixe, l'image s'adapte -->
                     <div class="fenetre-souvenir">
-                        <img src="image/sortie.07.jpg" alt="Sortie">
+                        <img src="image/sortie.07.jpg" alt="Sortie au parc">
                         <h3>Sortie au parc</h3>
                     </div>
                     <div class="fenetre-souvenir">
-                        <img src="image/sport.02.jpg" alt="Sport">
+                        <img src="image/sport.02.jpg" alt="Tournoi de foot">
                         <h3>Tournoi de foot</h3>
                     </div>
                     <div class="fenetre-souvenir">
@@ -134,24 +180,19 @@
                         <h3>Laser game</h3>
                     </div>
                     <div class="fenetre-souvenir">
-                        <img src="image/sortie.01.jpg" alt="Sortie">
+                        <img src="image/sortie.01.jpg" alt="Journée plage">
                         <h3>Journée plage</h3>
                     </div>
                     <div class="fenetre-souvenir">
-                        <img src="image/sortie.05.jpg" alt="Sortie">
+                        <img src="image/sortie.05.jpg" alt="Randonnée">
                         <h3>Randonnée</h3>
                     </div>
-                    <!-- Ajoute autant de fenêtres que nécessaire -->
-                    <!-- Pour l'exemple, on duplique quelques unes pour avoir un effet de longueur -->
-                    <div class="fenetre-souvenir">
-                        <img src="image/sortie.07.jpg" alt="Sortie">
-                        <h3>Autre souvenir</h3>
-                    </div>
+                    <!-- Tu peux ajouter autant de souvenirs que tu veux -->
                 </div>
             </div>
         </div>
 
-        <!-- Musique d'ambiance (optionnel) -->
+        <!-- Musique d'ambiance -->
         <div style="text-align: center; margin-top: 40px;">
             <div style="background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 50px; padding: 15px; display: inline-block; width: auto;">
                 <p style="color: white; margin-bottom: 10px;">🎵 Musique d'ambiance</p>
@@ -167,7 +208,14 @@
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
 
+    <!-- LIGHTBOX : image agrandie au clic -->
+    <div id="lightbox" class="lightbox">
+        <button class="close-lightbox">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Agrandissement">
+    </div>
+
     <script>
+        // Défilement du carrousel
         const container = document.getElementById('carrouselContainer');
         const leftBtn = document.getElementById('leftSouvenir');
         const rightBtn = document.getElementById('rightSouvenir');
@@ -177,6 +225,44 @@
         });
         rightBtn.addEventListener('click', () => {
             container.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        // ===== LIGHTBOX : agrandissement des photos au clic =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.querySelector('.close-lightbox');
+        
+        // Récupère toutes les images des fenêtres-souvenir
+        const allImages = document.querySelectorAll('.fenetre-souvenir img');
+        
+        allImages.forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+        
+        // Fermer la lightbox au clic sur le bouton
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+        });
+        
+        // Fermer la lightbox au clic sur le fond noir
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+            }
+        });
+        
+        // Fermer avec la touche Échap
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+            }
         });
     </script>
 </body>
