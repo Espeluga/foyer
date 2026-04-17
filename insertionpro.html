@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion Pro - Foyer L'Espeluga</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('image/font.foyer.01.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        body::before {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .page-mission {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        /* Cadre pour l'image de présentation */
+        .presentation-img {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .presentation-img img {
+            width: 100%;
+            max-width: 700px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 2px solid #ffd700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Zone de texte transparente avec défilement */
+        .texte-mission {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            max-height: 400px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        /* Personnalisation de la barre de défilement */
+        .texte-mission::-webkit-scrollbar {
+            width: 8px;
+        }
+        .texte-mission::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .texte-mission::-webkit-scrollbar-thumb {
+            background: #ffd700;
+            border-radius: 10px;
+        }
+
+        .texte-mission h2 {
+            color: #ffd700;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ffd700;
+            padding-left: 1rem;
+        }
+
+        .texte-mission p {
+            color: white;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .bouton-retour {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 25px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .bouton-retour:hover {
+            background: #ffd700;
+            color: black;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 700px) {
+            .presentation-img img {
+                height: 200px;
+            }
+            .texte-mission {
+                padding: 1.2rem;
+                max-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        <a href="index.html">Accueil</a>
+        <a href="missions.html">Nos Missions</a>
+        <a href="equipe.html">L'équipe éducative</a>
+        <a href="espeluga.html">L'Espeluga</a>
+        <a href="formation.html">Formation</a>
+        <a href="animation.html">Animation</a>
+        <a href="sorties.html">Souvenir</a>
+    </div>
+
+    <div class="container">
+        <a href="missions.html" class="bouton-retour">← Retour aux missions</a>
+
+        <div class="page-mission">
+            <!-- Image de présentation (centrée, taille moyenne) -->
+            <div class="presentation-img">
+                <img src="image/courrousel.apprentissage.jpg" alt="Santé - Présentation">
+            </div>
+
+            <!-- Zone de texte transparente avec défilement -->
+            <div class="texte-mission">
+                <h2>📌 Ce que nous faisons</h2>
+                <p>
+                   Découvrez comment nous accompagnons chaque jeune dans la construction de son projet professionnel ! 
+                </p>
+                <p>
+                   Le lien avec les les entreprises et les CFA
+                </p>
+                <p>
+                  Les enjeux, les impératifs, l'interêt de s'assurer au quotidien qu'ils réussient leur parcours d'apprentissage
+                </p>
+                <p>
+                   Qui est Julie, la Référente Pôle Insertion !!
+                </p>
+                <p>
+                    <strong>📅 L'organisation sur le terrain :</strong> comment s'implique toute l'équipe !
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
+    </footer>
+</body>
+</html>
