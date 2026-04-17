@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIE QUOTIDIENNE- Foyer L'Espeluga</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('image/font.05.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        body::before {
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .journal-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+        }
+        .journal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.5);
+        }
+        .journal-header h1 {
+            color: #ffd700;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .journal-thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid #ffd700;
+        }
+        .journal-content {
+            color: white;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .journal-content p {
+            margin-bottom: 1rem;
+        }
+        .journal-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .journal-btn {
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid #ffd700;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .journal-btn:hover {
+            background: #ffd700;
+            color: black;
+            transform: scale(1.02);
+        }
+        .bouton-retour {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .bouton-retour:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        .date-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.3);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        <a href="index.html">Accueil</a>
+        <a href="missions.html">Nos Missions</a>
+        <a href="equipe.html">L'équipe éducative</a>
+        <a href="espeluga.html">L'Espeluga</a>
+        <a href="formation.html">Formation</a>
+        <a href="animation.html">Animation</a>
+        <a href="sorties.html">Souvenir</a>
+    </div>
+
+    <div class="container">
+        <a href="missions.html" class="bouton-retour">← Retour aux missions</a>
+        
+        <div class="journal-container">
+            <div class="journal-header">
+                <h1>NOM_DE_LA_MISSION</h1>
+                <img src="image/chemin_vers_ta_miniature.jpg" alt="Illustration" class="journal-thumb">
+            </div>
+            
+            <div class="date-badge">📅 Dernière mise à jour : DATE</div>
+            
+            <div class="journal-content">
+                <p>ICI LE TEXTE DE TON JOURNAL DE BORD.</p>
+                <p>Tu peux écrire plusieurs paragraphes, raconter les actions menées, les progrès, les anecdotes, etc.</p>
+                <p>Ce système fonctionne comme un blog : chaque nouvelle page écrase la précédente si tu utilises le même nom de fichier, ou tu peux créer des versions numérotées.</p>
+            </div>
+            
+            <div class="journal-nav">
+                <a href="#" class="journal-btn">◀ Article précédent</a>
+                <a href="#" class="journal-btn">Article suivant ▶</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
+    </footer>
+</body>
+</html>
