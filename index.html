@@ -11,11 +11,32 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
         }
+        
         /* Cache tout le contenu tant que le mot de passe n'est pas validé */
         #protected-content {
             display: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
+        
+        /* Quand le contenu est affiché, on le met en colonne */
+        #protected-content.show {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        
+        /* Pour que le footer reste en bas */
+        .content-wrapper {
+            flex: 1;
+        }
+        
         .login-overlay {
             position: fixed;
             top: 0;
@@ -59,6 +80,10 @@
             margin-top: 1rem;
             display: none;
         }
+        
+        footer {
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
@@ -86,12 +111,15 @@
         <a href="sorties.html">Souvenir</a>
     </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Foyer L'Espeluga</h1>
-            <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
-        </div>
-    </section>
+    <!-- Contenu principal qui pousse le footer en bas -->
+    <div class="content-wrapper">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Foyer L'Espeluga</h1>
+                <p>Accompagnement éducatif, insertion et vivre‑ensemble pour les jeunes</p>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
@@ -100,7 +128,7 @@
 
 <script>
     // ⚠️ REMPLACE 'Espeluga2026' PAR LE MOT DE PASSE QUE TU VEUX
-    const VALID_PASSWORD = 'Chato9@06740';
+    const VALID_PASSWORD = 'Chato9@06470';
     
     function checkPassword() {
         const userPassword = document.getElementById('passwordInput').value;
@@ -110,7 +138,9 @@
             // Mot de passe correct : on cache la page de connexion et on affiche le site
             localStorage.setItem('site_authenticated', 'true');
             document.getElementById('loginOverlay').style.display = 'none';
-            document.getElementById('protected-content').style.display = 'block';
+            const protectedContent = document.getElementById('protected-content');
+            protectedContent.style.display = 'flex';
+            protectedContent.classList.add('show');
         } else {
             // Mot de passe incorrect
             errorMsg.style.display = 'block';
@@ -121,7 +151,9 @@
     // Vérifie si l'utilisateur est déjà authentifié (localStorage)
     if (localStorage.getItem('site_authenticated') === 'true') {
         document.getElementById('loginOverlay').style.display = 'none';
-        document.getElementById('protected-content').style.display = 'block';
+        const protectedContent = document.getElementById('protected-content');
+        protectedContent.style.display = 'flex';
+        protectedContent.classList.add('show');
     }
     
     // Appuyer sur Entrée dans le champ mot de passe déclenche la vérification
