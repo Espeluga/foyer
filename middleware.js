@@ -1,24 +1,20 @@
 export function middleware(request) {
-  // Vérifie si l'utilisateur est déjà authentifié (via un cookie)
   const auth = request.cookies.get('auth');
   
-  // Si authentifié, on le laisse passer
   if (auth === 'true') {
     return;
   }
   
-  // Sinon, on demande le mot de passe
   const url = new URL(request.url);
   const password = url.searchParams.get('password');
   
-  // Remplacez 'VOTRE_MOT_DE_PASSE' par le mot de passe de votre choix
+  // ⬇️ CHANGE ICI : mets ton mot de passe entre les guillemets
   if (password === 'Chato9@06740') {
     const response = new Response(null, { status: 302, headers: { Location: '/' } });
-    response.cookies.set('auth', 'true', { maxAge: 60 * 60 * 24 * 30 }); // valable 30 jours
+    response.cookies.set('auth', 'true', { maxAge: 60 * 60 * 24 * 30 });
     return response;
   }
   
-  // Si pas de mot de passe ou mauvais mot de passe, on affiche la page de connexion
   return new Response(
     `<!DOCTYPE html>
     <html>
