@@ -45,5 +45,12 @@
     <footer>
         <p>© 2026 Foyer L'Espeluga – Pôle éducatif</p>
     </footer>
+<script>
+  // Rafraîchir la page si elle vient d'être redirigée après connexion
+  if (window.location.href.includes('password=')) {
+    window.location.href = window.location.origin;
+  }
+</script>
+    
 </body>
 </html>
