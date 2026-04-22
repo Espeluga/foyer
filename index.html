@@ -84,6 +84,59 @@
         footer {
             margin-top: auto;
         }
+
+        /* ===== LECTEUR MUSIQUE FLOTTANT ===== */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 15px 8px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #ffd700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .music-player:hover {
+            background: rgba(0, 0, 0, 0.85);
+            border-color: #ffaa00;
+        }
+        .music-btn {
+            background: #ffd700;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .music-btn:hover {
+            background: #ffaa00;
+            transform: scale(1.05);
+        }
+        .music-info {
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            max-width: 120px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        @media (max-width: 500px) {
+            .music-info { display: none; }
+            .music-player { padding: 8px 12px; }
+        }
     </style>
 </head>
 <body>
@@ -126,37 +179,103 @@
     </footer>
 </div>
 
+<!-- LECTEUR MUSIQUE FLOTTANT -->
+<div class="music-player" id="musicPlayer">
+    <button class="music-btn" id="playPauseBtn">🔊</button>
+    <span class="music-info" id="musicInfo">Musique d'ambiance</span>
+</div>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="musique/Espeluga.mp3" type="audio/mpeg">
+    <!-- Si tu veux une musique différente, change le chemin ici -->
+</audio>
+
 <script>
-    // ⚠️ REMPLACE 'Espeluga2026' PAR LE MOT DE PASSE QUE TU VEUX
+    // ⚠️ REMPLACE 'Chato9@06740' PAR LE MOT DE PASSE QUE TU VEUX
     const VALID_PASSWORD = 'Chato9@06740';
     
+    // ===== GESTION DE LA MUSIQUE =====
+    const audio = document.getElementById('bgMusic');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    let isPlaying = false;
+    
+    // Fonction pour lancer la musique (nécessite une interaction utilisateur)
+    function startMusic() {
+        if (!isPlaying) {
+            audio.play().then(() => {
+                isPlaying = true;
+                playPauseBtn.textContent = '🔊';
+                // Sauvegarde l'état dans localStorage
+                localStorage.setItem('musicPlaying', 'true');
+            }).catch(e => {
+                console.log("Lecture auto bloquée, clique sur le bouton musique");
+                playPauseBtn.textContent = '🔇';
+            });
+        }
+    }
+    
+    // Lecture/Pause au clic sur le bouton
+    playPauseBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            playPauseBtn.textContent = '🔇';
+            localStorage.setItem('musicPlaying', 'false');
+        } else {
+            audio.play().then(() => {
+                isPlaying = true;
+                playPauseBtn.textContent = '🔊';
+                localStorage.setItem('musicPlaying', 'true');
+            }).catch(e => console.log("Erreur lecture"));
+        }
+    });
+    
+    // Restaurer l'état de la musique si elle était en cours
+    if (localStorage.getItem('musicPlaying') === 'true') {
+        audio.play().then(() => {
+            isPlaying = true;
+            playPauseBtn.textContent = '🔊';
+        }).catch(() => {
+            playPauseBtn.textContent = '🔇';
+        });
+    }
+    
+    // ===== GESTION DE LA CONNEXION =====
     function checkPassword() {
         const userPassword = document.getElementById('passwordInput').value;
         const errorMsg = document.getElementById('errorMsg');
         
         if (userPassword === VALID_PASSWORD) {
-            // Mot de passe correct : on cache la page de connexion et on affiche le site
             localStorage.setItem('site_authenticated', 'true');
             document.getElementById('loginOverlay').style.display = 'none';
             const protectedContent = document.getElementById('protected-content');
             protectedContent.style.display = 'flex';
             protectedContent.classList.add('show');
+            // Lance la musique après connexion
+            startMusic();
         } else {
-            // Mot de passe incorrect
             errorMsg.style.display = 'block';
             document.getElementById('passwordInput').value = '';
         }
     }
     
-    // Vérifie si l'utilisateur est déjà authentifié (localStorage)
+    // Vérifie si l'utilisateur est déjà authentifié
     if (localStorage.getItem('site_authenticated') === 'true') {
         document.getElementById('loginOverlay').style.display = 'none';
         const protectedContent = document.getElementById('protected-content');
         protectedContent.style.display = 'flex';
         protectedContent.classList.add('show');
+        // Lance la musique si elle était en cours
+        if (localStorage.getItem('musicPlaying') === 'true') {
+            audio.play().then(() => {
+                isPlaying = true;
+                playPauseBtn.textContent = '🔊';
+            }).catch(() => {});
+        }
     }
     
-    // Appuyer sur Entrée dans le champ mot de passe déclenche la vérification
+    // Appuyer sur Entrée dans le champ mot de passe
     document.getElementById('passwordInput').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             checkPassword();
